@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Titanic",
+    "length": 269,
+    "width": 28,
+    "code": "AAAA-1111-A1"
+  },
+  {
+    "name": "Queen Mary 2",
+    "length": 345,
+    "width": 41,
+    "code": "BBBB-2222-B2"
+  },
+  {
+    "name": "Oasis of the Seas",
+    "length": 362,
+    "width": 47,
+    "code": "CCCC-3333-C3"
+  },
+  {
+    "name": "Symphony of the Seas",
+    "length": 361,
+    "width": 47,
+    "code": "DDDD-4444-D4"
+  },
+  {
+    "name": "Harmony of the Seas",
+    "length": 362,
+    "width": 47,
+    "code": "EEEE-5555-E5"
+  }
+]
