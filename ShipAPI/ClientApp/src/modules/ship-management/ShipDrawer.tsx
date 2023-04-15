@@ -2,7 +2,7 @@ import Drawer from "@mui/material/Drawer";
 import { Divider, Typography } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-import ShipEditForm from "./ShipEditForm";
+import ShipForm from "./ShipForm";
 
 type ShipDrawerProps = {
   open: boolean;
@@ -33,8 +33,8 @@ const ShipDrawer = (props: ShipDrawerProps) => {
       <Typography variant="h4" component="div" sx={{ px: 2 }}>
         {props.action === "create" ? "Create Ship" : "Update Ship"}
       </Typography>
-      <Divider sx={{ mx: 1 }} />
-      <ShipEditForm />
+      <Divider sx={{ mx: 1, mb: 2 }} />
+      <ShipForm action={props.action} />
     </Drawer>
   );
 };

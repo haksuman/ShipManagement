@@ -1,5 +1,5 @@
 export interface Ship {
-  id: number;
+  id: string;
   name: string;
   lengthInMeters: number;
   widthInMeters: number;
