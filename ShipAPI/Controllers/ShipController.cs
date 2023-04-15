@@ -83,8 +83,10 @@ namespace ShipAPI.Controllers
             }
 
             var fileContent = System.IO.File.ReadAllText(_filePath);
-            var ships = JsonSerializer.Deserialize<List<Ship>>(fileContent);
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            var ships = JsonSerializer.Deserialize<List<Ship>>(fileContent, options);
             return ships;
+
         }
 
         private void WriteShipsToFile(List<Ship> ships)
