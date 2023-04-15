@@ -48,22 +48,29 @@ namespace ShipAPI.Controllers
         [HttpPut("{id}")]
         public ActionResult UpdateShip(int id, [FromBody] Ship updatedShip)
         {
+            if (updatedShip == null)
+            {
+                return BadRequest("Invalid ship data");
+            }
+
             var ships = ReadShipsFromFile();
             var shipIndex = ships.FindIndex(s => s.Id == id);
             if (shipIndex == -1)
             {
-                return NotFound();
+                return NotFound("Ship not found");
             }
             updatedShip.Id = id;
             ships[shipIndex] = updatedShip;
             WriteShipsToFile(ships);
-            return NoContent();
+            //return NoContent();
+            return Ok();
         }
 
         // DELETE: api/Ship/5
         [HttpDelete("{id}")]
         public ActionResult DeleteShip(int id)
         {
+
             var ships = ReadShipsFromFile();
             var shipIndex = ships.FindIndex(s => s.Id == id);
             if (shipIndex == -1)
@@ -72,7 +79,8 @@ namespace ShipAPI.Controllers
             }
             ships.RemoveAt(shipIndex);
             WriteShipsToFile(ships);
-            return NoContent();
+            //return NoContent();
+            return Ok();
         }
 
         private List<Ship> ReadShipsFromFile()

@@ -1,39 +1,44 @@
 [
-    {
-      "id": 1,
-      "name": "Titanic",
-      "lengthInMeters": 269,
-      "widthInMeters": 28,
-      "code": "AAAA-1111-A1"
-    },
-    {
-      "id": 2,
-      "name": "Queen Mary 2",
-      "lengthInMeters": 345,
-      "widthInMeters": 41,
-      "code": "BBBB-2222-B2"
-    },
-    {
-      "id": 3,
-      "name": "Oasis of the Seas",
-      "lengthInMeters": 362,
-      "widthInMeters": 47,
-      "code": "CCCC-3333-C3"
-    },
-    {
-      "id": 4,
-      "name": "Symphony of the Seas",
-      "lengthInMeters": 361,
-      "widthInMeters": 47,
-      "code": "DDDD-4444-D4"
-    },
-    {
-      "id": 5,
-      "name": "Harmony of the Seas",
-      "lengthInMeters": 362,
-      "widthInMeters": 47,
-      "code": "EEEE-5555-E5"
-    }
-  ]
-
-
+  {
+    "Code": "AAAA-1111-A1",
+    "Id": 1,
+    "LengthInMeters": 269,
+    "Name": "Titanic",
+    "WidthInMeters": 28
+  },
+  {
+    "Id": 2,
+    "Name": "Queen Mary 2",
+    "LengthInMeters": 345,
+    "WidthInMeters": 41,
+    "Code": "BBBB-2222-B2"
+  },
+  {
+    "Id": 3,
+    "Name": "Oasis of the Seas",
+    "LengthInMeters": 362,
+    "WidthInMeters": 47,
+    "Code": "CCCC-3333-C3"
+  },
+  {
+    "Id": 4,
+    "Name": "Symphony of the Seas",
+    "LengthInMeters": 361,
+    "WidthInMeters": 47,
+    "Code": "DDDD-4444-D4"
+  },
+  {
+    "Id": 5,
+    "Name": "Harmony of the Seas",
+    "LengthInMeters": 361,
+    "WidthInMeters": 47,
+    "Code": "EEEE-5555-E5"
+  },
+  {
+    "Id": 6,
+    "Name": "Harmony of the Seas",
+    "LengthInMeters": 362,
+    "WidthInMeters": 47,
+    "Code": "EEEE-5555-E5"
+  }
+]
