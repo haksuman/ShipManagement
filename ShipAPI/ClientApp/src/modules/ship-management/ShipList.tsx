@@ -35,24 +35,17 @@ const ShipList = () => {
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
+                <TableCell align="left">Actions</TableCell>
                 <TableCell>Ship Name</TableCell>
-                <TableCell align="right">Length (m)</TableCell>
-                <TableCell align="right">Width (m)</TableCell>
-                <TableCell align="right">Code</TableCell>
-                <TableCell align="right">Actions</TableCell>
+                <TableCell align="left">Length (m)</TableCell>
+                <TableCell align="left">Width (m)</TableCell>
+                <TableCell align="left">Code</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {ships.map((ship) => (
                 <TableRow key={ship.id} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
-                  <TableCell component="th" scope="row">
-                    {ship.name}
-                  </TableCell>
-
-                  <TableCell align="right">{ship.lengthInMeters}</TableCell>
-                  <TableCell align="right">{ship.widthInMeters}</TableCell>
-                  <TableCell align="right">{ship.code}</TableCell>
-                  <TableCell align="right">
+                  <TableCell align="left">
                     <IconButton onClick={() => handleEdit(ship.id)}>
                       <EditIcon />
                     </IconButton>
@@ -60,6 +53,13 @@ const ShipList = () => {
                       <DeleteIcon />
                     </IconButton>
                   </TableCell>
+                  <TableCell component="th" scope="row">
+                    {ship.name}
+                  </TableCell>
+
+                  <TableCell align="left">{ship.lengthInMeters}</TableCell>
+                  <TableCell align="left">{ship.widthInMeters}</TableCell>
+                  <TableCell align="left">{ship.code}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

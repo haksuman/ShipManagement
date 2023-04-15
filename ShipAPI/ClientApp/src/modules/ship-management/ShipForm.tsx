@@ -2,14 +2,18 @@ import { Controller, useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Ship } from "../../types/Ship";
-import { TextField, Button, Grid } from "@mui/material";
+import { TextField, Button, Grid, Typography, Divider } from "@mui/material";
 import { useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { useParams } from "react-router-dom";
 
 type ShipEditFormProps = {
-  action: string;
+  // action: string;
 };
 const ShipForm = (props: ShipEditFormProps) => {
+  const routeParams = useParams();
+  const { id } = routeParams as { id: string };
+  const action = id === "new" ? "create" : "edit";
   const schema = yup.object().shape({
     name: yup.string().required(),
     lengthInMeters: yup.number().required(),
@@ -29,14 +33,20 @@ const ShipForm = (props: ShipEditFormProps) => {
   };
 
   useEffect(() => {
-    if (props.action === "create") {
+    if (action === "create") {
       setValue("id", uuidv4());
     }
-  }, [props.action]);
+  }, [action]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Grid container spacing={2} sx={{ p: 2 }}>
+        <Grid item xs={12} sm={12}>
+          <Typography variant="h4" component="div" sx={{ px: 2 }}>
+            {action === "create" ? "Create Ship" : "Update Ship"}
+          </Typography>
+          <Divider sx={{ mx: 1, mb: 2 }} />
+        </Grid>
         <Grid item xs={12} sm={12}>
           <Controller
             name="name"

@@ -8,9 +8,6 @@ type ShipManagementProps = {};
 export default function ShipManagement(props: ShipManagementProps) {
   const [ships, setShips] = useState<Ship[]>([]);
 
-  const [open, setOpen] = useState(true);
-  const action = "create";
-
   // // Function to create a new ship
   // const createShip = (name: string, lengthInMeters: number, widthInMeters: number, code: string) => {
   //   const newShip: Ship = { name, lengthInMeters, widthInMeters, code };
@@ -33,7 +30,7 @@ export default function ShipManagement(props: ShipManagementProps) {
   return (
     <div>
       <h1>Ship Management</h1>
-      <ShipDrawer open={open} setOpen={setOpen} action={action} />
+      <ShipDrawer />
       <ShipList />
       {/* TODO: Add form to create new ships */}
       {/* TODO: Render list of existing ships */}

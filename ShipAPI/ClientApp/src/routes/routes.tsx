@@ -1,10 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 
 import ShipManagement from "../pages/ShipManagement";
+import ShipForm from "../modules/ship-management/ShipForm";
 
 export const routes = (
   <Routes>
-    {/* Shared route */}
-    <Route path="/ship-management" element={<ShipManagement />} />
+    <Route path="/ship-management" element={<ShipManagement />}>
+      <Route path="edit/:id" element={<ShipForm />} />
+    </Route>
   </Routes>
 );
