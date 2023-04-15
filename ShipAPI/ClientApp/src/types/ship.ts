@@ -1,4 +1,4 @@
-interface Ship {
+export interface Ship {
   Id: number;
   Name: string;
   LengthInMeters: number;

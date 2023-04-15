@@ -1,11 +1,12 @@
 // import "./App.css";
 import { Typography } from "@mui/material";
+import { BrowserRouter, Routes } from "react-router-dom";
+import { routes } from "./routes/routes";
 
 function App() {
   return (
     <div className="App">
-      <Typography variant="h1">Hello World</Typography>
-      <Typography variant="h2">Hello World2</Typography>
+      <BrowserRouter>{routes}</BrowserRouter>
     </div>
   );
 }
