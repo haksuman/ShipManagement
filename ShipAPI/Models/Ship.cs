@@ -6,10 +6,10 @@ namespace ShipAPI.Models
     public class Ship
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public string? Id { get; set; }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [JsonProperty("lengthInMeters")]
         public int LengthInMeters { get; set; }

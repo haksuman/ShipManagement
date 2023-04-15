@@ -22,7 +22,7 @@ namespace ShipAPI.Controllers
 
         // GET: api/Ship/5
         [HttpGet("{id}", Name = "GetShip")]
-        public ActionResult<Ship> GetShip(int id)
+        public ActionResult<Ship> GetShip(string id)
         {
             var ships = ReadShipsFromFile();
             var ship = ships.Find(s => s.Id == id);
@@ -38,7 +38,7 @@ namespace ShipAPI.Controllers
         public ActionResult<Ship> CreateShip([FromBody] Ship ship)
         {
             var ships = ReadShipsFromFile();
-            ship.Id = GetNextShipId(ships);
+            //ship.Id = GetNextShipId(ships);
             ships.Add(ship);
             WriteShipsToFile(ships);
             return CreatedAtRoute("GetShip", new { id = ship.Id }, ship);
@@ -46,7 +46,7 @@ namespace ShipAPI.Controllers
 
         // PUT: api/Ship/5
         [HttpPut("{id}")]
-        public ActionResult UpdateShip(int id, [FromBody] Ship updatedShip)
+        public ActionResult UpdateShip(string id, [FromBody] Ship updatedShip)
         {
             if (updatedShip == null)
             {
@@ -68,7 +68,7 @@ namespace ShipAPI.Controllers
 
         // DELETE: api/Ship/5
         [HttpDelete("{id}")]
-        public ActionResult DeleteShip(int id)
+        public ActionResult DeleteShip(string id)
         {
 
             var ships = ReadShipsFromFile();
@@ -103,17 +103,17 @@ namespace ShipAPI.Controllers
             System.IO.File.WriteAllText(_filePath, fileContent);
         }
 
-        private int GetNextShipId(List<Ship> ships)
-        {
-            int nextId = 1;
-            foreach (var ship in ships)
-            {
-                if (ship.Id >= nextId)
-                {
-                    nextId = ship.Id + 1;
-                }
-            }
-            return nextId;
-        }
+        //private int GetNextShipId(List<Ship> ships)
+        //{
+        //    int nextId = "1";
+        //    foreach (var ship in ships)
+        //    {
+        //        if (ship.Id >= nextId)
+        //        {
+        //            nextId = ship.Id + 1;
+        //        }
+        //    }
+        //    return nextId;
+        //}
     }
 }
