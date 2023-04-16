@@ -5,15 +5,14 @@ import { Ship } from "../../types/Ship";
 import { TextField, Button, Grid, Typography, Divider } from "@mui/material";
 import { useContext, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ShipManagementContext from "./ShipManagementContext";
 
-type ShipEditFormProps = {
-  // action: string;
-};
+type ShipEditFormProps = {};
 const ShipForm = (props: ShipEditFormProps) => {
-  const { ships } = useContext(ShipManagementContext);
   const routeParams = useParams();
+  const navigate = useNavigate();
+  const { goBackUrl } = useContext(ShipManagementContext);
   const { id } = routeParams as { id: string };
   const action = id === "new" ? "create" : "edit";
   const schema = yup.object().shape({
@@ -23,6 +22,7 @@ const ShipForm = (props: ShipEditFormProps) => {
   const {
     register,
     handleSubmit,
+    reset,
     control,
     setValue,
     formState: { errors },
@@ -31,12 +31,47 @@ const ShipForm = (props: ShipEditFormProps) => {
   });
 
   const onSubmit = (data: Ship) => {
-    console.log(data);
+    if (action === "create") {
+      // console.log("create", data);
+      fetch("/api/Ship", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }).then((response) => {
+        if (response.ok) {
+          console.log("created");
+          navigate(goBackUrl);
+        }
+      });
+    } else {
+      console.log("update", data);
+      fetch(`/api/Ship/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }).then((response) => {
+        if (response.ok) {
+          console.log("updated");
+          navigate(goBackUrl);
+        }
+      });
+    }
   };
 
   useEffect(() => {
     if (action === "create") {
       setValue("id", uuidv4());
+    } else {
+      // fetch ship by id
+      fetch(`/api/Ship/${id}`)
+        .then((response) => response.json())
+        .then((ship) => {
+          reset(ship);
+        });
     }
   }, [action]);
 

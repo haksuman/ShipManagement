@@ -42,7 +42,7 @@ const ShipList = (props: ShipListProps) => {
                   <TableCell align="left">{ship?.widthInMeters}</TableCell>
                   <TableCell align="left">{ship?.code}</TableCell>
                   <TableCell align="left">
-                    <IconButton color="primary" component={Link} to={`/ship-management/edit/|${ship.id}`}>
+                    <IconButton color="primary" component={Link} to={`/ship-management/edit/${ship.id}`}>
                       <EditIcon />
                     </IconButton>
                     <IconButton color="error" onClick={() => handleDelete(ship.id)}>

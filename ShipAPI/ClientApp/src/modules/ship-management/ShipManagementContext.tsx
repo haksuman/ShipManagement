@@ -4,6 +4,7 @@ import { Ship } from "../../types/Ship";
 type ShipManagementContextType = {
   ships: Ship[];
   setShips: (ships: Ship[]) => void;
+  goBackUrl: string;
 };
 
 const ShipManagementContext = createContext<ShipManagementContextType>({
@@ -11,6 +12,7 @@ const ShipManagementContext = createContext<ShipManagementContextType>({
   setShips: () => {
     throw new Error("setShips not implemented");
   },
+  goBackUrl: "/ship-management",
 });
 
 export default ShipManagementContext;
