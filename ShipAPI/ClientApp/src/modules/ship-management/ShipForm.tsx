@@ -3,14 +3,16 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Ship } from "../../types/Ship";
 import { TextField, Button, Grid, Typography, Divider } from "@mui/material";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useParams } from "react-router-dom";
+import ShipManagementContext from "./ShipManagementContext";
 
 type ShipEditFormProps = {
   // action: string;
 };
 const ShipForm = (props: ShipEditFormProps) => {
+  const { ships } = useContext(ShipManagementContext);
   const routeParams = useParams();
   const { id } = routeParams as { id: string };
   const action = id === "new" ? "create" : "edit";
@@ -74,6 +76,7 @@ const ShipForm = (props: ShipEditFormProps) => {
               <TextField
                 label="Length in meters"
                 variant="outlined"
+                type="number"
                 margin="normal"
                 fullWidth
                 {...field}
@@ -92,6 +95,7 @@ const ShipForm = (props: ShipEditFormProps) => {
               <TextField
                 label="Width in meters"
                 variant="outlined"
+                type="number"
                 margin="normal"
                 fullWidth
                 {...field}

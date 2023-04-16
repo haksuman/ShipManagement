@@ -2,30 +2,20 @@ import { IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHe
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import { Box } from "@mui/system";
+import { Ship } from "../../types/Ship";
+import { Link } from "react-router-dom";
 
-const ShipList = () => {
-  const ships = [
-    {
-      id: 1,
-      name: "Ship 1",
+type ShipListProps = {
+  ships: Ship[];
+};
 
-      lengthInMeters: 100,
-      widthInMeters: 50,
-      code: "S1",
-    },
-    {
-      id: 2,
-      name: "Ship 2",
-      lengthInMeters: 200,
-      widthInMeters: 100,
-      code: "S2",
-    },
-  ];
+const ShipList = (props: ShipListProps) => {
+  const { ships } = props;
 
-  const handleEdit = (id: number) => {
+  const handleEdit = (id: string) => {
     console.log("Edit ship with id: " + id);
   };
-  const handleDelete = (id: number) => {
+  const handleDelete = (id: string) => {
     console.log("Delete ship with id: " + id);
   };
   return (
@@ -52,7 +42,7 @@ const ShipList = () => {
                   <TableCell align="left">{ship?.widthInMeters}</TableCell>
                   <TableCell align="left">{ship?.code}</TableCell>
                   <TableCell align="left">
-                    <IconButton color="primary" onClick={() => handleEdit(ship.id)}>
+                    <IconButton color="primary" component={Link} to={`/ship-management/edit/|${ship.id}`}>
                       <EditIcon />
                     </IconButton>
                     <IconButton color="error" onClick={() => handleDelete(ship.id)}>
