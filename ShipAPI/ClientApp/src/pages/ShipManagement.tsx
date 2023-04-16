@@ -10,12 +10,10 @@ export default function ShipManagement(props: ShipManagementProps) {
   const [ships, setShips] = useState<Ship[]>([]);
 
   useEffect(() => {
-    // fetch("api/Ship")
-    fetch("https://localhost:7097/api/Ship")
+    fetch("/api/Ship")
       .then((response) => response.json())
       .then((ships) => {
         setShips(ships);
-        console.log(ships);
       });
   }, []);
 
