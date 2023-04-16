@@ -35,31 +35,30 @@ const ShipList = () => {
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell align="left">Actions</TableCell>
                 <TableCell>Ship Name</TableCell>
                 <TableCell align="left">Length (m)</TableCell>
                 <TableCell align="left">Width (m)</TableCell>
                 <TableCell align="left">Code</TableCell>
+                <TableCell align="left">Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {ships.map((ship) => (
-                <TableRow key={ship.id} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+              {ships?.map((ship) => (
+                <TableRow key={ship?.id} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+                  <TableCell component="th" scope="row">
+                    {ship?.name}
+                  </TableCell>
+                  <TableCell align="left">{ship?.lengthInMeters}</TableCell>
+                  <TableCell align="left">{ship?.widthInMeters}</TableCell>
+                  <TableCell align="left">{ship?.code}</TableCell>
                   <TableCell align="left">
-                    <IconButton onClick={() => handleEdit(ship.id)}>
+                    <IconButton color="primary" onClick={() => handleEdit(ship.id)}>
                       <EditIcon />
                     </IconButton>
-                    <IconButton onClick={() => handleDelete(ship.id)}>
+                    <IconButton color="error" onClick={() => handleDelete(ship.id)}>
                       <DeleteIcon />
                     </IconButton>
                   </TableCell>
-                  <TableCell component="th" scope="row">
-                    {ship.name}
-                  </TableCell>
-
-                  <TableCell align="left">{ship.lengthInMeters}</TableCell>
-                  <TableCell align="left">{ship.widthInMeters}</TableCell>
-                  <TableCell align="left">{ship.code}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

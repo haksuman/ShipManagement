@@ -45,3 +45,8 @@ C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\bin\Debug\net7.0\Mono.Tex
 C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\bin\Debug\net7.0\System.CodeDom.dll
 C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\bin\Debug\net7.0\data\ships.json
 C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\bin\Debug\net7.0\System.Web.Cors.dll
+C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\bin\Debug\net7.0\System.Net.Http.Formatting.dll
+C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\bin\Debug\net7.0\System.Web.Http.dll
+C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\bin\Debug\net7.0\System.Web.Http.Cors.dll
+C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll

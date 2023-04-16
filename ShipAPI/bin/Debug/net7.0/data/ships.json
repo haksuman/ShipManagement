@@ -1,10 +1,10 @@
 [
   {
+    "Code": "AAAA-1111-A1",
     "Id": "1",
-    "Name": "Titanic",
     "LengthInMeters": 269,
-    "WidthInMeters": 28,
-    "Code": "AAAA-1111-A1"
+    "Name": "Titanic",
+    "WidthInMeters": 28
   },
   {
     "Id": "2",
@@ -14,11 +14,11 @@
     "Code": "BBBB-2222-B2"
   },
   {
-    "Code": "CCCC-3333-C3",
     "Id": "3",
-    "LengthInMeters": 362,
     "Name": "Oasis of the Seas",
-    "WidthInMeters": 47
+    "LengthInMeters": 362,
+    "WidthInMeters": 47,
+    "Code": "CCCC-3333-C3"
   },
   {
     "Id": "4",

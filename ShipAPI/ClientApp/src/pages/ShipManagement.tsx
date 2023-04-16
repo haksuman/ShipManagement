@@ -2,30 +2,22 @@ import { useState } from "react";
 import { Ship } from "../types/Ship";
 import ShipDrawer from "../modules/ship-management/ShipDrawer";
 import ShipList from "../modules/ship-management/ShipList";
+import { useEffect } from "react";
 
 type ShipManagementProps = {};
 
 export default function ShipManagement(props: ShipManagementProps) {
   const [ships, setShips] = useState<Ship[]>([]);
 
-  // // Function to create a new ship
-  // const createShip = (name: string, lengthInMeters: number, widthInMeters: number, code: string) => {
-  //   const newShip: Ship = { name, lengthInMeters, widthInMeters, code };
-  //   setShips([...ships, newShip]);
-  // };
-
-  // // Function to update an existing ship
-  // const updateShip = (id: number, name: string, lengthInMeters: number, widthInMeters: number, code: string) => {
-  //   const updatedShip: Ship = { id, name, lengthInMeters, widthInMeters, code };
-  //   const updatedShips = ships.map((ship) => (ship.id === id ? updatedShip : ship));
-  //   setShips(updatedShips);
-  // };
-
-  // // Function to delete a ship
-  // const deleteShip = (id: number) => {
-  //   const updatedShips = ships.filter((ship) => ship.id !== id);
-  //   setShips(updatedShips);
-  // };
+  useEffect(() => {
+    // fetch("api/Ship")
+    fetch("https://localhost:7097/api/Ship")
+      .then((response) => response.json())
+      .then((ships) => {
+        setShips(ships);
+        console.log(ships);
+      });
+  }, []);
 
   return (
     <div>
