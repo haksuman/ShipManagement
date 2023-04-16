@@ -5,6 +5,7 @@ type ShipManagementContextType = {
   ships: Ship[];
   setShips: (ships: Ship[]) => void;
   goBackUrl: string;
+  setDeleteCount: (count: number) => void;
 };
 
 const ShipManagementContext = createContext<ShipManagementContextType>({
@@ -13,6 +14,9 @@ const ShipManagementContext = createContext<ShipManagementContextType>({
     throw new Error("setShips not implemented");
   },
   goBackUrl: "/ship-management",
+  setDeleteCount: () => {
+    throw new Error("setDeleteCount not implemented");
+  },
 });
 
 export default ShipManagementContext;

@@ -11,6 +11,7 @@ type ShipManagementProps = {};
 
 export default function ShipManagement(props: ShipManagementProps) {
   const [ships, setShips] = useState<Ship[]>([]);
+  const [deleteCount, setDeleteCount] = useState(0);
   const goBackUrl = "/ship-management";
   const routeParams = useParams();
 
@@ -20,10 +21,10 @@ export default function ShipManagement(props: ShipManagementProps) {
       .then((ships) => {
         setShips(ships);
       });
-  }, [routeParams]);
+  }, [routeParams, deleteCount]);
 
   return (
-    <ShipManagementContext.Provider value={{ ships, setShips, goBackUrl }}>
+    <ShipManagementContext.Provider value={{ ships, setShips, goBackUrl, setDeleteCount }}>
       <div>
         <h1>Ship Management</h1>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>

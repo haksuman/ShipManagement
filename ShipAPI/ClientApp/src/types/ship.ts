@@ -4,4 +4,5 @@ export interface Ship {
   lengthInMeters: number;
   widthInMeters: number;
   code: string;
+  [key: string]: any;
 }
