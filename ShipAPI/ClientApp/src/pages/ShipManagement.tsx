@@ -16,7 +16,18 @@ export default function ShipManagement(props: ShipManagementProps) {
   const routeParams = useParams();
 
   useEffect(() => {
-    fetch("/api/Ship")
+    // fetch("/api/Ship")
+    //   .then((response) => response.json())
+    //   .then((ships) => {
+    //     setShips(ships);
+    //   });
+    // add headers to fetch request
+    fetch("/api/Ship", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
       .then((response) => response.json())
       .then((ships) => {
         setShips(ships);

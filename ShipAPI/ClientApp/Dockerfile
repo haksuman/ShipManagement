@@ -1,5 +1,5 @@
 # base image
-FROM node:14-alpine
+FROM node:17-alpine
 
 # install Docker client
 RUN apk update && \
@@ -17,10 +17,14 @@ COPY package-lock.json ./
 RUN npm install
 
 # add app
-COPY . ./
+COPY . .
+
+# # expose the port
+# EXPOSE 8080
 
 # build the app
-RUN npm run build
+# RUN npm run build
 
 # start the app
-CMD ["npm", "run", "serve"]
+# CMD ["npm", "run", "serve", "--", "--port", "8080"]
+CMD ["npm", "run", "dev", "--", "--port", "8080"]
