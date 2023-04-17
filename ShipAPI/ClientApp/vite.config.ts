@@ -11,7 +11,7 @@ export default defineConfig({
     proxy: {
       "/api": {
         // target: process.env.API_URL || "https://localhost:7097/api",
-        target: "https://192.168.1.6:32768/api",
+        target: "https://shipapi:443/api",
         // target: "https://192.168.1.6:32768/api",
         changeOrigin: true,
         // changeOrigin: false,

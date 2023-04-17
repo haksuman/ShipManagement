@@ -1,0 +1,48 @@
+name: dockercompose3293763807914691305
+services:
+  frontend:
+    image: ship-management-frontend
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 8080
+      published: "8080"
+      protocol: tcp
+  shipapi:
+    build:
+      context: C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI
+      dockerfile: Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: shipapi
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      protocol: tcp
+    - mode: ingress
+      target: 5000
+      published: "5000"
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: C:\Users\Hakan\AppData\Roaming/Microsoft/UserSecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\Hakan\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+networks:
+  default:
+    name: dockercompose3293763807914691305_default
