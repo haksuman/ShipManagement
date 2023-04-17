@@ -5,7 +5,7 @@ import ShipForm from "../modules/ship-management/ShipForm";
 
 export const routes = (
   <Routes>
-    <Route path="/ship-management" element={<ShipManagement />}>
+    <Route path="/" element={<ShipManagement />}>
       <Route path="edit/:id" element={<ShipForm />} />
     </Route>
   </Routes>

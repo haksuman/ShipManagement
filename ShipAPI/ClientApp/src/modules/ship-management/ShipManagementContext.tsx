@@ -13,7 +13,7 @@ const ShipManagementContext = createContext<ShipManagementContextType>({
   setShips: () => {
     throw new Error("setShips not implemented");
   },
-  goBackUrl: "/ship-management",
+  goBackUrl: "",
   setDeleteCount: () => {
     throw new Error("setDeleteCount not implemented");
   },

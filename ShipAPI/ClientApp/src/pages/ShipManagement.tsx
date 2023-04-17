@@ -12,7 +12,7 @@ type ShipManagementProps = {};
 export default function ShipManagement(props: ShipManagementProps) {
   const [ships, setShips] = useState<Ship[]>([]);
   const [deleteCount, setDeleteCount] = useState(0);
-  const goBackUrl = "/ship-management";
+  const goBackUrl = "";
   const routeParams = useParams();
 
   useEffect(() => {
@@ -43,7 +43,8 @@ export default function ShipManagement(props: ShipManagementProps) {
             variant="contained"
             color="success"
             component={Link}
-            to="/ship-management/edit/new"
+            // to="/ship-management/edit/new"
+            to={`${goBackUrl}/edit/new`}
             sx={{
               width: 200,
               fontSize: 20,
