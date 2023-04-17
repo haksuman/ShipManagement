@@ -11,6 +11,9 @@ services:
       - "443:443"
   frontend:
     image: ship-management-frontend
+    build:
+      context: ./ClientApp
+      dockerfile: Dockerfile
     ports:
       - "8080:8080"
     depends_on:

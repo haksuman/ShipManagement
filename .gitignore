@@ -9,3 +9,5 @@ ShipAPI/bin/
 ShipAPI/bin
 ShipAPI/obj/Debug/net7.0/ShipAPI.dll
 ShipAPI/obj/Debug/net7.0/ShipAPI.pdb
+ShipAPI/.vs/ShipAPI/DesignTimeBuild/.dtbcache.v2
+ShipAPI/.vs/ShipAPI/v17/.suo

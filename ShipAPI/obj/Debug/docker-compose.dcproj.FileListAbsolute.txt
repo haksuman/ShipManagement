@@ -17,3 +17,4 @@ C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\bin\Debug\ShipAPI.pdb
 C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\obj\Debug\docker-compose.dcproj.AssemblyReference.cache
 C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
 C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\obj\Debug\docker-compose.dcproj.CopyComplete
+C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\bin\Debug\launchSettings.json

@@ -50,3 +50,4 @@ C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\bin\Debug\net7.0\System.N
 C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\bin\Debug\net7.0\System.Web.Http.dll
 C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\bin\Debug\net7.0\System.Web.Http.Cors.dll
 C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
+C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\bin\Debug\net7.0\launchSettings.json

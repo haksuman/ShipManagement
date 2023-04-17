@@ -19,12 +19,9 @@ RUN npm install
 # add app
 COPY . .
 
-# # expose the port
-# EXPOSE 8080
-
 # build the app
-# RUN npm run build
+RUN npm run build
 
 # start the app
-# CMD ["npm", "run", "serve", "--", "--port", "8080"]
-CMD ["npm", "run", "dev", "--", "--port", "8080"]
+CMD ["npm", "run", "serve", "--", "--port", "8080"]
+# CMD ["npm", "run", "dev", "--", "--port", "8080"]
