@@ -1,13 +1,18 @@
+# Ignore Visual Studio files and directories
 ShipAPI/.vs/
-ShipAPI/.vs
-ShipAPI/.vs/ProjectEvaluation/shipapi.metadata.v5.2
-ShipAPI/.vs/ProjectEvaluation/shipapi.projects.v5.2
-ShipAPI/.vs/ShipAPI/DesignTimeBuild/.dtbcache.v2
-ShipAPI/.vs/ShipAPI/FileContentIndex/0c91e13e-f59b-4d1b-b787-63da6a344f14.vsidx
-ShipAPI/.vs/ShipAPI/v17/.suo
+ShipAPI/*.sln.docstates
+ShipAPI/*.suo
+ShipAPI/*.user
+ShipAPI/*.vspscc
+ShipAPI/obj/
 ShipAPI/bin/
-ShipAPI/bin
-ShipAPI/obj/Debug/net7.0/ShipAPI.dll
-ShipAPI/obj/Debug/net7.0/ShipAPI.pdb
-ShipAPI/.vs/ShipAPI/DesignTimeBuild/.dtbcache.v2
-ShipAPI/.vs/ShipAPI/v17/.suo
+
+# Ignore build artifacts
+ShipAPI/obj/**/*.dll
+ShipAPI/obj/**/*.exe
+ShipAPI/obj/**/*.pdb
+ShipAPI/obj/**/*.xml
+ShipAPI/bin/**/*.dll
+ShipAPI/bin/**/*.exe
+ShipAPI/bin/**/*.pdb
+ShipAPI/bin/**/*.xml
