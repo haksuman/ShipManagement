@@ -1,9 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "RKZErpavRvC8IvsdMUxiXeaJGLrTeGk/8zijqKurTFv6ZxVJikJ+2Vv+y7S9S8yivAJOS8Ki0QvLmCbjYq6ODA==",
+  "dgSpecHash": "B/zehYTKdVp6AiWoxAdS2r9kW0jg+ntakXO75qMD9YuVCs2aGmRnzXfCB0TERBxRN6t28fKQUjV9Z5jahSuSgQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Hakan\\Documents\\GitHub\\ShipManagement\\ShipAPI\\ShipAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Hakan\\.nuget\\packages\\graphql\\7.4.0\\graphql.7.4.0.nupkg.sha512",
+    "C:\\Users\\Hakan\\.nuget\\packages\\graphql-parser\\8.1.0\\graphql-parser.8.1.0.nupkg.sha512",
+    "C:\\Users\\Hakan\\.nuget\\packages\\graphql.microsoftdi\\7.4.0\\graphql.microsoftdi.7.4.0.nupkg.sha512",
+    "C:\\Users\\Hakan\\.nuget\\packages\\graphql.server.transports.aspnetcore\\7.4.0\\graphql.server.transports.aspnetcore.7.4.0.nupkg.sha512",
+    "C:\\Users\\Hakan\\.nuget\\packages\\graphql.systemtextjson\\7.4.0\\graphql.systemtextjson.7.4.0.nupkg.sha512",
     "C:\\Users\\Hakan\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Hakan\\.nuget\\packages\\microsoft.aspnet.cors\\5.2.9\\microsoft.aspnet.cors.5.2.9.nupkg.sha512",
     "C:\\Users\\Hakan\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.9\\microsoft.aspnet.webapi.client.5.2.9.nupkg.sha512",
