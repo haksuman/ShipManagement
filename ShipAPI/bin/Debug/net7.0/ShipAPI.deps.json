@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v7.0": {
       "ShipAPI/1.0.0": {
         "dependencies": {
+          "GraphQL.Server.Transports.AspNetCore": "7.4.0",
           "Microsoft.AspNet.WebApi.Cors": "5.2.9",
           "Microsoft.AspNetCore.OpenApi": "7.0.2",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.4",
@@ -17,6 +18,60 @@
         },
         "runtime": {
           "ShipAPI.dll": {}
+        }
+      },
+      "GraphQL/7.4.0": {
+        "dependencies": {
+          "GraphQL-Parser": "8.1.0"
+        },
+        "runtime": {
+          "lib/net6.0/GraphQL.dll": {
+            "assemblyVersion": "7.4.0.0",
+            "fileVersion": "7.4.0.0"
+          }
+        }
+      },
+      "GraphQL-Parser/8.1.0": {
+        "runtime": {
+          "lib/net6.0/GraphQLParser.dll": {
+            "assemblyVersion": "8.1.0.0",
+            "fileVersion": "8.1.0.0"
+          }
+        }
+      },
+      "GraphQL.MicrosoftDI/7.4.0": {
+        "dependencies": {
+          "GraphQL": "7.4.0",
+          "Microsoft.Extensions.Options": "7.0.0"
+        },
+        "runtime": {
+          "lib/net5.0/GraphQL.MicrosoftDI.dll": {
+            "assemblyVersion": "7.4.0.0",
+            "fileVersion": "7.4.0.0"
+          }
+        }
+      },
+      "GraphQL.Server.Transports.AspNetCore/7.4.0": {
+        "dependencies": {
+          "GraphQL.MicrosoftDI": "7.4.0",
+          "GraphQL.SystemTextJson": "7.4.0"
+        },
+        "runtime": {
+          "lib/net6.0/GraphQL.Server.Transports.AspNetCore.dll": {
+            "assemblyVersion": "7.4.0.0",
+            "fileVersion": "7.4.0.0"
+          }
+        }
+      },
+      "GraphQL.SystemTextJson/7.4.0": {
+        "dependencies": {
+          "GraphQL": "7.4.0"
+        },
+        "runtime": {
+          "lib/net6.0/GraphQL.SystemTextJson.dll": {
+            "assemblyVersion": "7.4.0.0",
+            "fileVersion": "7.4.0.0"
+          }
         }
       },
       "Humanizer.Core/2.14.1": {
@@ -955,6 +1010,41 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "GraphQL/7.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Sxk302fjnlWjF74X7/GSRgcA0Hx7YwuV/Sm5CiSVdxn9wbrZ31ZMuwC+hgt4iQjM2xkTWk3IbTc9Asc+q4YO4A==",
+      "path": "graphql/7.4.0",
+      "hashPath": "graphql.7.4.0.nupkg.sha512"
+    },
+    "GraphQL-Parser/8.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tGSA8V7iqgHLcyyeZwUsElbboKFqNLerewExyCsDqCqCexM50ktx5lBMXwPJjt0QFX0aI5H/HmJLyiQdFnx/cg==",
+      "path": "graphql-parser/8.1.0",
+      "hashPath": "graphql-parser.8.1.0.nupkg.sha512"
+    },
+    "GraphQL.MicrosoftDI/7.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MHS+jTLR27Ri7CKK24DZxvgObA4EvdIFaG1aiUiGaxBcqrnzWkwmWGs//azS+Ayj+E0CkjoIYAKgkK0OwiI6GA==",
+      "path": "graphql.microsoftdi/7.4.0",
+      "hashPath": "graphql.microsoftdi.7.4.0.nupkg.sha512"
+    },
+    "GraphQL.Server.Transports.AspNetCore/7.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qsOh01JGmTfdF6+yE8InyPa9GIaqnYZEAfBu561kMkeXfC7a81gTrhnLYadDLvoRoDpxCwCLMUTU9Rev6nrDeA==",
+      "path": "graphql.server.transports.aspnetcore/7.4.0",
+      "hashPath": "graphql.server.transports.aspnetcore.7.4.0.nupkg.sha512"
+    },
+    "GraphQL.SystemTextJson/7.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cAH4/EnaXY5DI1uAxuHo35ivNBi4qVc8QlRYolw4rD5trJUkAOkifsqrOIKxC2WGWm30hgglCy6dTJuBuVaTRA==",
+      "path": "graphql.systemtextjson/7.4.0",
+      "hashPath": "graphql.systemtextjson.7.4.0.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",
