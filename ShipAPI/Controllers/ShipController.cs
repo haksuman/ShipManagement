@@ -103,17 +103,6 @@ namespace ShipAPI.Controllers
             System.IO.File.WriteAllText(_filePath, fileContent);
         }
 
-        //private int GetNextShipId(List<Ship> ships)
-        //{
-        //    int nextId = "1";
-        //    foreach (var ship in ships)
-        //    {
-        //        if (ship.Id >= nextId)
-        //        {
-        //            nextId = ship.Id + 1;
-        //        }
-        //    }
-        //    return nextId;
-        //}
+        
     }
 }

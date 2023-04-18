@@ -16,12 +16,6 @@ export default function ShipManagement(props: ShipManagementProps) {
   const routeParams = useParams();
 
   useEffect(() => {
-    // fetch("/api/Ship")
-    //   .then((response) => response.json())
-    //   .then((ships) => {
-    //     setShips(ships);
-    //   });
-    // add headers to fetch request
     fetch("/api/Ship", {
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +37,6 @@ export default function ShipManagement(props: ShipManagementProps) {
             variant="contained"
             color="success"
             component={Link}
-            // to="/ship-management/edit/new"
             to={`${goBackUrl}/edit/new`}
             sx={{
               width: 200,
@@ -56,8 +49,6 @@ export default function ShipManagement(props: ShipManagementProps) {
         </div>
         <ShipDrawer />
         <ShipList ships={ships} />
-        {/* TODO: Add form to create new ships */}
-        {/* TODO: Render list of existing ships */}
       </div>
     </ShipManagementContext.Provider>
   );
