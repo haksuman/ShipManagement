@@ -51,3 +51,8 @@ C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\bin\Debug\net7.0\System.W
 C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\bin\Debug\net7.0\System.Web.Http.Cors.dll
 C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
 C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\bin\Debug\net7.0\launchSettings.json
+C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\bin\Debug\net7.0\GraphQL.dll
+C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\bin\Debug\net7.0\GraphQLParser.dll
+C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\bin\Debug\net7.0\GraphQL.MicrosoftDI.dll
+C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\bin\Debug\net7.0\GraphQL.Server.Transports.AspNetCore.dll
+C:\Users\Hakan\Documents\GitHub\ShipManagement\ShipAPI\bin\Debug\net7.0\GraphQL.SystemTextJson.dll

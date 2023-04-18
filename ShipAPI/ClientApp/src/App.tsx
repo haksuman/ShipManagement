@@ -1,13 +1,11 @@
-// import "./App.css";
-import { Typography } from "@mui/material";
 import { BrowserRouter, Routes } from "react-router-dom";
 import { routes } from "./routes/routes";
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>{routes}</BrowserRouter>
-    </div>
+    // <div className="App">
+    <BrowserRouter>{routes}</BrowserRouter>
+    // </div>
   );
 }
 

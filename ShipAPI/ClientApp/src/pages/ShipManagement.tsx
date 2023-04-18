@@ -3,7 +3,7 @@ import { Ship } from "../types/Ship";
 import ShipDrawer from "../modules/ship-management/ShipDrawer";
 import ShipList from "../modules/ship-management/ShipList";
 import { Link, useParams } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import ShipManagementContext from "../modules/ship-management/ShipManagementContext";
 
@@ -30,8 +30,23 @@ export default function ShipManagement(props: ShipManagementProps) {
 
   return (
     <ShipManagementContext.Provider value={{ ships, setShips, goBackUrl, setDeleteCount }}>
-      <div>
-        <h1>Ship Management</h1>
+      <Box
+        sx={{
+          backgroundColor: "rgb(238, 238, 238)",
+          p: 3,
+          minHeight: "100vh",
+        }}
+      >
+        <Typography
+          variant="h4"
+          sx={{
+            fontFamily: "Inter var, Roboto, Helvetica, Arial, sans-serif",
+            fontWeight: 600,
+            mt: 3,
+          }}
+        >
+          Ship Management
+        </Typography>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           <Button
             variant="contained"
@@ -49,7 +64,7 @@ export default function ShipManagement(props: ShipManagementProps) {
         </div>
         <ShipDrawer />
         <ShipList ships={ships} />
-      </div>
+      </Box>
     </ShipManagementContext.Provider>
   );
 }
