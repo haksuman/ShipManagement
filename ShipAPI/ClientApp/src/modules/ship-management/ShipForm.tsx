@@ -160,10 +160,10 @@ const ShipForm = (props: ShipEditFormProps) => {
         </Grid>
         <Grid item xs={12} sm={12}>
           <div style={{ display: "flex", justifyContent: "flex-end" }}>
-            <Button variant="contained" color="inherit" sx={{ mt: 2, mr: 2, fontSize: 18, width: 100 }}>
+            <Button variant="contained" color="inherit" sx={{ mt: 2, mr: 2, fontSize: 18, width: 120 }}>
               Cancel
             </Button>
-            <Button type="submit" variant="contained" color="primary" sx={{ mt: 2, mr: 2, fontSize: 18, width: 100 }}>
+            <Button type="submit" variant="contained" color="primary" sx={{ mt: 2, mr: 2, fontSize: 18, width: 120 }}>
               Save
             </Button>
           </div>

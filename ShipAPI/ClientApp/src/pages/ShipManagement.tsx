@@ -30,19 +30,19 @@ export default function ShipManagement(props: ShipManagementProps) {
 
   return (
     <ShipManagementContext.Provider value={{ ships, setShips, goBackUrl, setDeleteCount }}>
-      {/* <div> */}
       <Box
         sx={{
-          width: "100%",
-          height: "100vh",
           backgroundColor: "rgb(238, 238, 238)",
           p: 3,
+          minHeight: "100vh",
         }}
       >
         <Typography
           variant="h4"
           sx={{
             fontFamily: "Inter var, Roboto, Helvetica, Arial, sans-serif",
+            fontWeight: 600,
+            mt: 3,
           }}
         >
           Ship Management
@@ -65,7 +65,6 @@ export default function ShipManagement(props: ShipManagementProps) {
         <ShipDrawer />
         <ShipList ships={ships} />
       </Box>
-      {/* </div> */}
     </ShipManagementContext.Provider>
   );
 }
