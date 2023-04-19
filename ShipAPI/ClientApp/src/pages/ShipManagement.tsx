@@ -16,7 +16,9 @@ export default function ShipManagement(props: ShipManagementProps) {
   const routeParams = useParams();
 
   useEffect(() => {
-    fetch("/api/Ship", {
+    const fetchUrl = new URL("/api/Ship", window.location.href);
+    fetch(fetchUrl, {
+      // fetch("/api/Ship", {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",

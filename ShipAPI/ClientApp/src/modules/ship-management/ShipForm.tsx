@@ -8,8 +8,10 @@ import { v4 as uuidv4 } from "uuid";
 import { useNavigate, useParams } from "react-router-dom";
 import ShipManagementContext from "./ShipManagementContext";
 
-type ShipEditFormProps = {};
-const ShipForm = (props: ShipEditFormProps) => {
+type ShipEditFormProps = {
+  onSubmit: (data: Ship) => void;
+};
+const ShipForm = ({ onSubmit }: ShipEditFormProps) => {
   const routeParams = useParams();
   const navigate = useNavigate();
   const { goBackUrl } = useContext(ShipManagementContext);
@@ -30,7 +32,7 @@ const ShipForm = (props: ShipEditFormProps) => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data: Ship) => {
+  const handleFormSubmit = (data: Ship) => {
     if (action === "create") {
       // console.log("create", data);
       fetch("/api/Ship", {
@@ -76,7 +78,7 @@ const ShipForm = (props: ShipEditFormProps) => {
   }, [action]);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(handleFormSubmit)}>
       <Grid container spacing={2} sx={{ p: 2 }}>
         <Grid item xs={12} sm={12}>
           <Typography variant="h4" component="div" sx={{ px: 2 }}>
