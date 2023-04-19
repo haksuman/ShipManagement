@@ -16,3 +16,11 @@ ShipAPI/bin/**/*.dll
 ShipAPI/bin/**/*.exe
 ShipAPI/bin/**/*.pdb
 ShipAPI/bin/**/*.xml
+ShipAPI/.vs/ProjectEvaluation/shipapi.metadata.v5.2
+ShipAPI/.vs/ProjectEvaluation/shipapi.projects.v5.2
+ShipAPI/.vs/ShipAPI/DesignTimeBuild/.dtbcache.v2
+ShipAPI/.vs/ShipAPI/v17/.suo
+ShipAPI/obj/Debug/net7.0/ShipAPI.dll
+ShipAPI/obj/Debug/net7.0/ShipAPI.pdb
+ShipAPI/obj/Debug/net7.0/ref/ShipAPI.dll
+ShipAPI/obj/Debug/net7.0/refint/ShipAPI.dll
