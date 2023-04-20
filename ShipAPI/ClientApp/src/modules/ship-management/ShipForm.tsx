@@ -8,7 +8,9 @@ import { v4 as uuidv4 } from "uuid";
 import { useNavigate, useParams } from "react-router-dom";
 import ShipManagementContext from "./ShipManagementContext";
 
-type ShipEditFormProps = {};
+type ShipEditFormProps = {
+  // onSubmitSpy: (data: Ship) => void;
+};
 const ShipForm = (props: ShipEditFormProps) => {
   const routeParams = useParams();
   const navigate = useNavigate();
@@ -16,8 +18,17 @@ const ShipForm = (props: ShipEditFormProps) => {
   const { id } = routeParams as { id: string };
   const action = id === "new" ? "create" : "edit";
   const schema = yup.object().shape({
-    name: yup.string().required(),
-    lengthInMeters: yup.number().required(),
+    name: yup.string().required("Name is required"),
+    lengthInMeters: yup
+      .number()
+      .nullable()
+      .typeError("Length in meters must be a number")
+      .positive("Length in meters must be a positive number"),
+    widthInMeters: yup
+      .number()
+      .typeError("Width in meters must be a number")
+      .positive("Width in meters must be a positive number"),
+    code: yup.string().required("Code is required"),
   });
   const {
     register,
@@ -30,9 +41,8 @@ const ShipForm = (props: ShipEditFormProps) => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data: Ship) => {
+  const handleFormSubmit = (data: Ship) => {
     if (action === "create") {
-      // console.log("create", data);
       fetch("/api/Ship", {
         method: "POST",
         headers: {
@@ -43,10 +53,10 @@ const ShipForm = (props: ShipEditFormProps) => {
         if (response.ok) {
           console.log("created");
           navigate(goBackUrl);
+          return response.json();
         }
       });
     } else {
-      console.log("update", data);
       fetch(`/api/Ship/${id}`, {
         method: "PUT",
         headers: {
@@ -60,6 +70,7 @@ const ShipForm = (props: ShipEditFormProps) => {
         }
       });
     }
+    return data;
   };
 
   useEffect(() => {
@@ -76,7 +87,7 @@ const ShipForm = (props: ShipEditFormProps) => {
   }, [action]);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(handleFormSubmit)}>
       <Grid container spacing={2} sx={{ p: 2 }}>
         <Grid item xs={12} sm={12}>
           <Typography variant="h4" component="div" sx={{ px: 2 }}>
@@ -84,6 +95,7 @@ const ShipForm = (props: ShipEditFormProps) => {
           </Typography>
           <Divider sx={{ mx: 1, mb: 2 }} />
         </Grid>
+
         <Grid item xs={12} sm={12}>
           <Controller
             name="name"
@@ -160,10 +172,10 @@ const ShipForm = (props: ShipEditFormProps) => {
         </Grid>
         <Grid item xs={12} sm={12}>
           <div style={{ display: "flex", justifyContent: "flex-end" }}>
-            <Button variant="contained" color="inherit" sx={{ mt: 2, mr: 2, fontSize: 18, width: 100 }}>
+            <Button variant="contained" color="inherit" sx={{ mt: 2, mr: 2, fontSize: 18, width: 120 }}>
               Cancel
             </Button>
-            <Button type="submit" variant="contained" color="primary" sx={{ mt: 2, mr: 2, fontSize: 18, width: 100 }}>
+            <Button type="submit" variant="contained" color="primary" sx={{ mt: 2, mr: 2, fontSize: 18, width: 120 }}>
               Save
             </Button>
           </div>

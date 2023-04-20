@@ -1,8 +1,6 @@
 import Drawer from "@mui/material/Drawer";
-import { Divider, Typography } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-import ShipForm from "./ShipForm";
 import { Link, Outlet, useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import ShipManagementContext from "./ShipManagementContext";
@@ -17,6 +15,8 @@ const ShipDrawer = (props: ShipDrawerProps) => {
   const [open, setOpen] = useState(false);
   const routeParams = useParams();
   const { goBackUrl } = useContext(ShipManagementContext);
+
+  // learn if isMobile
 
   useEffect(() => {
     if (routeParams.id) {

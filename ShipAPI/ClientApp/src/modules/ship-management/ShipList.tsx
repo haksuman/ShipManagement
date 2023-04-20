@@ -1,7 +1,16 @@
-import { IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
+import {
+  IconButton,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+} from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
-import { Box } from "@mui/system";
 import { Ship } from "../../types/Ship";
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
@@ -49,60 +58,112 @@ const ShipList = (props: ShipListProps) => {
 
   return (
     <>
-      <Box sx={{ p: 4 }}>
-        <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
-              <TableRow
-                sx={{
-                  "&:last-child th, &:last-child td": {
-                    border: 0,
-                  },
-                  backgroundColor: "#f5f5f5",
-                }}
-              >
+      <TableContainer
+        component={Paper}
+        sx={{
+          mt: 3,
+          borderRadius: 5,
+          boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.2)",
+        }}
+      >
+        <Table sx={{ minWidth: "100%" }}>
+          <TableHead>
+            <TableRow
+              sx={{
+                "&:last-child th, &:last-child td": {
+                  border: 0,
+                },
+                backgroundColor: "#f5f5f5",
+              }}
+            >
+              {headers?.map((header) => (
+                <TableCell key={header.id} style={{ minWidth: header.minWidth }}>
+                  {header.label}
+                </TableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {ships?.map((ship) => (
+              <TableRow key={ship?.id} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
                 {headers.map((header) => (
-                  <TableCell key={header.id} style={{ minWidth: header.minWidth }}>
-                    {header.label}
+                  <TableCell key={header.id} align="left">
+                    {header.id === "actions" ? (
+                      <>
+                        <IconButton color="primary" component={Link} to={`${goBackUrl}/edit/${ship.id}`}>
+                          <EditIcon />
+                        </IconButton>
+                        <IconButton color="error" onClick={() => handleDelete(ship.id)}>
+                          <DeleteIcon />
+                        </IconButton>
+                      </>
+                    ) : (
+                      ship?.[header?.id]
+                    )}
                   </TableCell>
                 ))}
               </TableRow>
-            </TableHead>
-            <TableBody>
-              {ships?.map((ship) => (
-                <TableRow key={ship?.id} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
-                  {headers.map((header) => (
-                    <TableCell key={header.id} align="left">
-                      {header.id === "actions" ? (
-                        <>
-                          <IconButton color="primary" component={Link} to={`${goBackUrl}/edit/${ship.id}`}>
-                            <EditIcon />
-                          </IconButton>
-                          <IconButton color="error" onClick={() => handleDelete(ship.id)}>
-                            <DeleteIcon />
-                          </IconButton>
-                        </>
-                      ) : (
-                        ship?.[header?.id]
-                      )}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        <Dialog open={openDeleteDialog} onClose={handleDeleteCancel}>
-          <DialogTitle>Delete Ship</DialogTitle>
-          <DialogContent>Are you sure you want to delete this ship?</DialogContent>
-          <DialogActions>
-            <Button onClick={handleDeleteCancel}>Cancel</Button>
-            <Button onClick={handleDeleteConfirm} autoFocus color="error">
-              Delete
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </Box>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      <Dialog
+        open={openDeleteDialog}
+        onClose={handleDeleteCancel}
+        sx={{
+          "& .MuiDialog-paper": {
+            borderRadius: 5,
+            boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.2)",
+            px: 2,
+            py: 1,
+          },
+        }}
+      >
+        <DialogTitle>
+          <Typography
+            variant="h6"
+            sx={{
+              fontSize: "1.5rem",
+              fontWeight: 600,
+            }}
+          >
+            Delete Ship
+          </Typography>
+        </DialogTitle>
+        <DialogContent>
+          <Typography
+            variant="body1"
+            sx={{
+              fontSize: "1.2rem",
+              mb: 1,
+            }}
+          >
+            Are you sure you want to delete this ship?
+          </Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button
+            onClick={handleDeleteCancel}
+            variant="outlined"
+            sx={{
+              fontSize: "1.1rem",
+            }}
+          >
+            Cancel
+          </Button>
+          <Button
+            onClick={handleDeleteConfirm}
+            variant="contained"
+            autoFocus
+            color="error"
+            sx={{
+              fontSize: "1.1rem",
+            }}
+          >
+            Delete
+          </Button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 };

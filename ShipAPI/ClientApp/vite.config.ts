@@ -1,3 +1,6 @@
+/// <reference types="vitest" />
+/// <reference types="vite/client" />
+
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import dotenv from "dotenv";
@@ -9,6 +12,13 @@ const isProduction = process.env.NODE_ENV === "production";
 
 export default defineConfig({
   plugins: [react()],
+  test: {
+    globals: true,
+    environment: "jsdom",
+    css: true,
+    dangerouslyIgnoreUnhandledErrors: true,
+    setupFiles: ["./src/__tests__/setupTests.ts"],
+  },
   server: {
     host: true,
     strictPort: true,
