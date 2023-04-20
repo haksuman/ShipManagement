@@ -9,17 +9,26 @@ import { useNavigate, useParams } from "react-router-dom";
 import ShipManagementContext from "./ShipManagementContext";
 
 type ShipEditFormProps = {
-  onSubmit: (data: Ship) => void;
+  // onSubmitSpy: (data: Ship) => void;
 };
-const ShipForm = ({ onSubmit }: ShipEditFormProps) => {
+const ShipForm = (props: ShipEditFormProps) => {
   const routeParams = useParams();
   const navigate = useNavigate();
   const { goBackUrl } = useContext(ShipManagementContext);
   const { id } = routeParams as { id: string };
   const action = id === "new" ? "create" : "edit";
   const schema = yup.object().shape({
-    name: yup.string().required(),
-    lengthInMeters: yup.number().required(),
+    name: yup.string().required("Name is required"),
+    lengthInMeters: yup
+      .number()
+      .nullable()
+      .typeError("Length in meters must be a number")
+      .positive("Length in meters must be a positive number"),
+    widthInMeters: yup
+      .number()
+      .typeError("Width in meters must be a number")
+      .positive("Width in meters must be a positive number"),
+    code: yup.string().required("Code is required"),
   });
   const {
     register,
@@ -34,7 +43,6 @@ const ShipForm = ({ onSubmit }: ShipEditFormProps) => {
 
   const handleFormSubmit = (data: Ship) => {
     if (action === "create") {
-      // console.log("create", data);
       fetch("/api/Ship", {
         method: "POST",
         headers: {
@@ -45,10 +53,10 @@ const ShipForm = ({ onSubmit }: ShipEditFormProps) => {
         if (response.ok) {
           console.log("created");
           navigate(goBackUrl);
+          return response.json();
         }
       });
     } else {
-      console.log("update", data);
       fetch(`/api/Ship/${id}`, {
         method: "PUT",
         headers: {
@@ -62,6 +70,7 @@ const ShipForm = ({ onSubmit }: ShipEditFormProps) => {
         }
       });
     }
+    return data;
   };
 
   useEffect(() => {
@@ -86,6 +95,7 @@ const ShipForm = ({ onSubmit }: ShipEditFormProps) => {
           </Typography>
           <Divider sx={{ mx: 1, mb: 2 }} />
         </Grid>
+
         <Grid item xs={12} sm={12}>
           <Controller
             name="name"
