@@ -18,17 +18,17 @@ const ShipForm = (props: ShipEditFormProps) => {
   const { id } = routeParams as { id: string };
   const action = id === "new" ? "create" : "edit";
   const schema = yup.object().shape({
-    name: yup.string().required("Name is required"),
-    lengthInMeters: yup
-      .number()
-      .nullable()
-      .typeError("Length in meters must be a number")
-      .positive("Length in meters must be a positive number"),
-    widthInMeters: yup
-      .number()
-      .typeError("Width in meters must be a number")
-      .positive("Width in meters must be a positive number"),
-    code: yup.string().required("Code is required"),
+    // name: yup.string().required("Name is required"),
+    // lengthInMeters: yup
+    //   .number()
+    //   .nullable()
+    //   .typeError("Length in meters must be a number")
+    //   .positive("Length in meters must be a positive number"),
+    // widthInMeters: yup
+    //   .number()
+    //   .typeError("Width in meters must be a number")
+    //   .positive("Width in meters must be a positive number"),
+    // code: yup.string().required("Code is required"),
   });
   const {
     register,
@@ -87,7 +87,7 @@ const ShipForm = (props: ShipEditFormProps) => {
   }, [action]);
 
   return (
-    <form onSubmit={handleSubmit(handleFormSubmit)}>
+    <form role="form" onSubmit={handleSubmit(handleFormSubmit)}>
       <Grid container spacing={2} sx={{ p: 2 }}>
         <Grid item xs={12} sm={12}>
           <Typography variant="h4" component="div" sx={{ px: 2 }}>
@@ -108,7 +108,7 @@ const ShipForm = (props: ShipEditFormProps) => {
                 margin="normal"
                 fullWidth
                 {...field}
-                error={!!errors.name}
+                error={!!errors?.name}
                 helperText={errors?.name?.message}
               />
             )}
@@ -127,7 +127,7 @@ const ShipForm = (props: ShipEditFormProps) => {
                 margin="normal"
                 fullWidth
                 {...field}
-                error={!!errors.lengthInMeters}
+                error={!!errors?.lengthInMeters}
                 helperText={errors?.lengthInMeters?.message}
               />
             )}
@@ -146,7 +146,7 @@ const ShipForm = (props: ShipEditFormProps) => {
                 margin="normal"
                 fullWidth
                 {...field}
-                error={!!errors.widthInMeters}
+                error={!!errors?.widthInMeters}
                 helperText={errors?.widthInMeters?.message}
               />
             )}
@@ -164,7 +164,7 @@ const ShipForm = (props: ShipEditFormProps) => {
                 margin="normal"
                 fullWidth
                 {...field}
-                error={!!errors.code}
+                error={!!errors?.code}
                 helperText={errors?.code?.message}
               />
             )}
