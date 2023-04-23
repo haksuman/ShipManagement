@@ -28,7 +28,10 @@ const ShipForm = (props: ShipEditFormProps) => {
       .number()
       .typeError("Width in meters must be a number")
       .positive("Width in meters must be a positive number"),
-    code: yup.string().required("Code is required"),
+    code: yup
+      .string()
+      .required("Code is required")
+      .matches(/^[A-Za-z]{4}-\d{4}-[A-Za-z]\d$/, "Code must be in the format of AAAA-1111-A1"),
   });
   const {
     register,
@@ -87,7 +90,7 @@ const ShipForm = (props: ShipEditFormProps) => {
   }, [action]);
 
   return (
-    <form onSubmit={handleSubmit(handleFormSubmit)}>
+    <form role="form" onSubmit={handleSubmit(handleFormSubmit)}>
       <Grid container spacing={2} sx={{ p: 2 }}>
         <Grid item xs={12} sm={12}>
           <Typography variant="h4" component="div" sx={{ px: 2 }}>
@@ -108,7 +111,7 @@ const ShipForm = (props: ShipEditFormProps) => {
                 margin="normal"
                 fullWidth
                 {...field}
-                error={!!errors.name}
+                error={!!errors?.name}
                 helperText={errors?.name?.message}
               />
             )}
@@ -127,7 +130,7 @@ const ShipForm = (props: ShipEditFormProps) => {
                 margin="normal"
                 fullWidth
                 {...field}
-                error={!!errors.lengthInMeters}
+                error={!!errors?.lengthInMeters}
                 helperText={errors?.lengthInMeters?.message}
               />
             )}
@@ -146,7 +149,7 @@ const ShipForm = (props: ShipEditFormProps) => {
                 margin="normal"
                 fullWidth
                 {...field}
-                error={!!errors.widthInMeters}
+                error={!!errors?.widthInMeters}
                 helperText={errors?.widthInMeters?.message}
               />
             )}
@@ -164,7 +167,7 @@ const ShipForm = (props: ShipEditFormProps) => {
                 margin="normal"
                 fullWidth
                 {...field}
-                error={!!errors.code}
+                error={!!errors?.code}
                 helperText={errors?.code?.message}
               />
             )}
