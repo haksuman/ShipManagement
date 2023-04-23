@@ -18,17 +18,20 @@ const ShipForm = (props: ShipEditFormProps) => {
   const { id } = routeParams as { id: string };
   const action = id === "new" ? "create" : "edit";
   const schema = yup.object().shape({
-    // name: yup.string().required("Name is required"),
-    // lengthInMeters: yup
-    //   .number()
-    //   .nullable()
-    //   .typeError("Length in meters must be a number")
-    //   .positive("Length in meters must be a positive number"),
-    // widthInMeters: yup
-    //   .number()
-    //   .typeError("Width in meters must be a number")
-    //   .positive("Width in meters must be a positive number"),
-    // code: yup.string().required("Code is required"),
+    name: yup.string().required("Name is required"),
+    lengthInMeters: yup
+      .number()
+      .nullable()
+      .typeError("Length in meters must be a number")
+      .positive("Length in meters must be a positive number"),
+    widthInMeters: yup
+      .number()
+      .typeError("Width in meters must be a number")
+      .positive("Width in meters must be a positive number"),
+    code: yup
+      .string()
+      .required("Code is required")
+      .matches(/^[A-Za-z]{4}-\d{4}-[A-Za-z]\d$/, "Code must be in the format of AAAA-1111-A1"),
   });
   const {
     register,
