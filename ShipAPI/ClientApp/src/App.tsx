@@ -3,9 +3,9 @@ import { routes } from "./routes/routes";
 
 function App() {
   return (
-    // <div className="App">
-    <BrowserRouter>{routes}</BrowserRouter>
-    // </div>
+    <div className="App">
+      <BrowserRouter>{routes}</BrowserRouter>
+    </div>
   );
 }
 
