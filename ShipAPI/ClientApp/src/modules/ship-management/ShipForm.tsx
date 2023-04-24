@@ -5,7 +5,7 @@ import { Ship } from "../../types/Ship";
 import { TextField, Button, Grid, Typography, Divider } from "@mui/material";
 import { useContext, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import ShipManagementContext from "./ShipManagementContext";
 
 type ShipEditFormProps = {
@@ -175,7 +175,13 @@ const ShipForm = (props: ShipEditFormProps) => {
         </Grid>
         <Grid item xs={12} sm={12}>
           <div style={{ display: "flex", justifyContent: "flex-end" }}>
-            <Button variant="contained" color="inherit" sx={{ mt: 2, mr: 2, fontSize: 18, width: 120 }}>
+            <Button
+              variant="contained"
+              color="inherit"
+              component={Link}
+              to={goBackUrl}
+              sx={{ mt: 2, mr: 2, fontSize: 18, width: 120 }}
+            >
               Cancel
             </Button>
             <Button type="submit" variant="contained" color="primary" sx={{ mt: 2, mr: 2, fontSize: 18, width: 120 }}>

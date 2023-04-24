@@ -90,7 +90,7 @@ const ShipList = (props: ShipListProps) => {
                   <TableCell key={header.id} align="left">
                     {header.id === "actions" ? (
                       <>
-                        <IconButton color="primary" component={Link} to={`${goBackUrl}/edit/${ship.id}`}>
+                        <IconButton color="primary" component={Link} to={`${goBackUrl}edit/${ship.id}`}>
                           <EditIcon />
                         </IconButton>
                         <IconButton color="error" onClick={() => handleDelete(ship.id)}>
